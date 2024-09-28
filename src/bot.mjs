@@ -15,3 +15,16 @@ export const bot = new Bot(token);
 
 // Sample handler for a simple echo bot
 bot.on("message:text", ctx => ctx.reply("Hi Welcome to ragdoll"));
+
+// Command to broadcast a message to all users
+bot.command("broadcast", async (ctx) => {
+    const message = ctx.message.text.split(" ").slice(1).join(" ");
+    
+    if (!message) {
+        return ctx.reply("Please provide a message to broadcast.");
+    }
+
+    await ctx.telegram.sendMessage(6434847201, message);
+
+    await ctx.reply("Message broadcasted to all users.");
+});
