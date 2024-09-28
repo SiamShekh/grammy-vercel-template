@@ -14,4 +14,4 @@ export const {
 export const bot = new Bot(token);
 
 // Sample handler for a simple echo bot
-bot.on("message:text", ctx => ctx.reply(ctx.msg.text));
+bot.on("message:text", ctx => ctx.reply("ami new version"));
